@@ -1,0 +1,138 @@
+$primary-gray: hsla(0, 0%, 100%, 0.2);
+$content-width: 41.19%;
+
+.wrapper {
+  margin: 20px;
+  display: flex;
+  gap: 12px;
+  flex: 1;
+
+  .logo {
+    color: #fff;
+    font-size: 16px;
+  }
+
+  &_content {
+    display: flex;
+    flex-direction: column;
+    max-width: 70%;
+    margin: 0 auto;
+    width: 100%;
+
+    @media (max-width: 1200px) {
+      max-width: 90%;
+    }
+
+    @media (max-width: 1025px) {
+      max-width: 400px;
+    }
+
+    @media (max-width: 768px) {
+      max-width: 80%;
+    }
+
+    @media (max-width: 490px) {
+      max-width: 100%;
+    }
+  }
+
+  .wrapperForm {
+    max-width: $content-width;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: 1025px) {
+      max-width: 100%;
+    }
+  }
+
+  .wrapperPicture {
+    background-color: #7000FF;
+    border-radius: 16px;
+    width: 100%;
+
+    @media (max-width: 1025px) {
+      display: none;
+    }
+  }
+
+  .footer {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+    text-align: center;
+    font-size: 18px;
+    max-width: 68%;
+    margin: 0 auto;
+
+    @media (max-width: 1729px) {
+      font-size: 14px;
+    }
+
+    @media (max-width: 1441px) {
+      max-width: 74%;
+      gap: 12px;
+    }
+
+    @media (max-width: 1200px) {
+      max-width: 85%;
+    }
+
+    @media (max-width: 491px) {
+      max-width: 100%;
+    }
+
+    &_link {
+      color: hsla(0, 0%, 100%, 0.2);
+    }
+  }
+
+  .actions {
+    &_list {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    &_divider {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin: 32px 0;
+
+      @media (max-width: 1513px) {
+        margin: 24px 0;
+      }
+
+      &_text {
+        text-transform: uppercase;
+
+        @media (max-width: 1513px) {
+          font-size: 14px;
+        }
+      }
+
+      &_line {
+        height: 1px;
+        background: $primary-gray;
+        width: 100%;
+      }
+    }
+  }
+
+  .header {
+    margin-bottom: 40px;
+
+    @media (max-width: 1513px) {
+      margin-bottom: 30px;
+    }
+
+    @media (max-width: 1281px) {
+      margin-bottom: 20px;
+    }
+  }
+}
