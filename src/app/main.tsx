@@ -1,5 +1,6 @@
 import { createRoot } from "react-dom/client";
 import { RouterProvider } from "react-router";
+import { ReduxProvider } from "./providers/redux-provider";
 import { router } from "./router";
 
 import "./index.scss";
@@ -10,4 +11,8 @@ if (!rootComponent) {
 	throw new Error("Not have element with id root");
 }
 
-createRoot(rootComponent).render(<RouterProvider router={router} />);
+createRoot(rootComponent).render(
+	<ReduxProvider>
+		<RouterProvider router={router} />
+	</ReduxProvider>,
+);

@@ -1,41 +1,43 @@
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { Link } from "react-router";
-import { z } from "zod";
 import { Button } from "@/shared/ui/button";
 import { Input } from "@/shared/ui/input";
+import { useLoginForm } from "../model/use-login-form";
 import styles from "./styles.module.scss";
 
-const schema = z.object({
-	email: z.email("Enter a valid email address"),
-	password: z.string().min(6, "Password must contain at least 6 characters"),
-});
-
-type TLoginFormFields = z.infer<typeof schema>;
-
 export const LoginForm = () => {
-	const form = useForm<TLoginFormFields>({
-		mode: "onBlur",
-		resolver: zodResolver(schema),
-	});
-
-	const onSubmit = (fields: TLoginFormFields) => {
-		console.log(fields);
-	};
+	const { form, onSubmit, errors, isLoading, isValid } = useLoginForm();
 
 	return (
 		<div className={styles.wrapper}>
-			<form className={styles.form} action="">
-				<label htmlFor="" className={styles.label}>
+			<form className={styles.form} onSubmit={form.handleSubmit(onSubmit)}>
+				<label htmlFor="email" className={styles.label}>
 					<span className={styles.label_text}>Email</span>
-					<Input placeholder="Enter your email" />
+					<Input
+						id="email"
+						placeholder="Enter your email"
+						{...form.register("email")}
+					/>
+					{errors.email && (
+						<span className={styles.error}>{errors.email.message}</span>
+					)}
 				</label>
-				<label htmlFor="" className={styles.label}>
+				<label htmlFor="password" className={styles.label}>
 					<span className={styles.label_text}>Password</span>
-					<Input placeholder="Enter your password" />
+					<Input
+						id="password"
+						placeholder="Enter your password"
+						{...form.register("password")}
+					/>
+					{errors.password && (
+						<span className={styles.error}>{errors.password.message}</span>
+					)}
 				</label>
-				<Button className={styles.btn} type="submit">
-					Log in
+				<Button
+					className={styles.btn}
+					type="submit"
+					disabled={!isValid || isLoading}
+				>
+					{isLoading ? "Loading..." : "Log in"}
 				</Button>
 			</form>
 			<div className={styles.meta}>
