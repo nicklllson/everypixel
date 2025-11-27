@@ -1,11 +1,13 @@
-import { createRoot } from 'react-dom/client';
-import { App } from './app';
-import './index.scss';
+import { createRoot } from "react-dom/client";
+import { RouterProvider } from "react-router";
+import { router } from "./router";
 
-const rootComponent = document.getElementById('root');
+import "./index.scss";
+
+const rootComponent = document.getElementById("root");
 
 if (!rootComponent) {
-  throw new Error('Not have element with id root');
+	throw new Error("Not have element with id root");
 }
 
-createRoot(rootComponent).render(<App />);
+createRoot(rootComponent).render(<RouterProvider router={router} />);

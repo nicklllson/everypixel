@@ -1,17 +1,43 @@
+@font-face {
+  font-family: InterTight;
+  src: url('../shared/assets/fonts/AnyConv.com__InterTight-Regular.woff2') format('woff2'), local(Arial), local(Helvetica);
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: InterTight;
+  src: url('../shared/assets/fonts/AnyConv.com__InterTight-Medium.woff2') format('woff2'), local(Arial), local(Helvetica);
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: InterTight;
+  src: url('../shared/assets/fonts/AnyConv.com__InterTight-SemiBold.woff2') format('woff2'), local(Arial), local(Helvetica);
+  font-weight: 600;
+  font-display: swap;
+}
+
 *,
 *::after,
 *::before {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: InterTight;
+  font-weight: 400;
 }
 
 body {
   display: flex;
   flex-direction: column;
   min-height: 100dvh;
+  background: #1A1A1A;
+  color: hsla(0, 0%, 100%, 0.2);
 }
 
 main {
   flex-grow: 1;
+  display: flex;
 }

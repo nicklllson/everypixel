@@ -1,0 +1,46 @@
+$button-primary: #7000FF;
+$button-primary-active: #8b32ff;
+$button-primary-text: #fff;
+$button-primary-fz: 20px;
+$button-primary-p: 17px 24px;
+$button-primary-r: 16px;
+
+.button {
+  cursor: pointer;
+  transition: all .15s ease;
+  padding: $button-primary-p;
+  border: none;
+  border-radius: $button-primary-r;
+  font-weight: 600;
+  font-size: $button-primary-fz;
+  text-align: center;
+  font-family: InterTight;
+}
+
+/* -------- filled -------- */
+
+.primary {
+  background-color: $button-primary;
+  color: $button-primary-text;
+}
+
+.primary:active,
+.primary:focus,
+.primary:hover {
+  background: $button-primary-active;
+}
+
+/* -------- outline -------- */
+
+.secondary {
+  background: transparent;
+  color: $button-primary-text;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.secondary:hover,
+.secondary:focus,
+.secondary:active {
+  border-color: rgba(255, 255, 255, 0.45);
+  background: rgba(255, 255, 255, 0.05);
+}
