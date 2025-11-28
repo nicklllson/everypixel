@@ -1,7 +1,7 @@
-import { Navigate, Outlet } from "react-router";
+import { Navigate, Outlet, redirect } from "react-router";
 import { logout, useSession } from "@/features/auth";
 import { ROUTES } from "@/shared/config/routes";
-import { useAppDispatch } from "@/shared/store";
+import { store, useAppDispatch } from "@/shared/store";
 
 export const PrivateRoute = () => {
 	const { session, isExpired } = useSession();
@@ -17,4 +17,15 @@ export const PrivateRoute = () => {
 	}
 
 	return <Outlet />;
+};
+
+export const privateLoader = () => {
+	const state = store.getState();
+	const session = state.auth?.session;
+
+	if (session) {
+		return redirect(ROUTES.HOME);
+	}
+
+	return null;
 };
