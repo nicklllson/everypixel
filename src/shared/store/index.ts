@@ -4,12 +4,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { authReducer } from "@/features/auth";
 import { authMiddleware } from "@/features/auth/model/middleware";
 import { loginApi } from "@/features/login";
+import { notificationReducer } from "@/features/notifications";
 import { storeHydration } from "./helpers";
 
 export const store = configureStore({
 	reducer: {
 		[loginApi.reducerPath]: loginApi.reducer,
 		auth: authReducer,
+		notification: notificationReducer,
 	},
 	preloadedState: {
 		auth: {

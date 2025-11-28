@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router";
 import { setCredentials } from "@/features/auth";
+import { showNotification } from "@/features/notifications";
 import { ROUTES } from "@/shared/config/routes";
 import { useAppDispatch } from "@/shared/store";
 import { useLoginMutation } from "../api/login.query";
@@ -27,6 +28,7 @@ export const useLoginForm = () => {
 				token: response.accessToken,
 			}),
 		);
+		dispatch(showNotification({ message: "Вход успешен!", type: "success" }));
 		navigate(ROUTES.HOME);
 	};
 

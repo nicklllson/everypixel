@@ -1,5 +1,11 @@
-import { Outlet } from 'react-router';
+import { Outlet } from "react-router";
+import { Notification } from "@/widgets/notification";
 
 export function App() {
-  return <Outlet />;
+	return (
+		<>
+			<Notification />
+			<Outlet />
+		</>
+	);
 }
