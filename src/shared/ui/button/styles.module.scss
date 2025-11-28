@@ -1,5 +1,6 @@
 $button-primary: #7000FF;
 $button-primary-active: #8b32ff;
+$button-error: #ff3a3a;
 $button-primary-text: #fff;
 $button-primary-fz: 20px;
 $button-primary-p: 17px 24px;
@@ -15,6 +16,7 @@ $button-primary-r: 16px;
   font-size: $button-primary-fz;
   text-align: center;
   font-family: InterTight;
+  height: fit-content;
 }
 
 /* -------- filled -------- */
@@ -50,4 +52,11 @@ $button-primary-r: 16px;
 .button:disabled {
   opacity: 0.7;
   cursor: not-allowed;
+}
+
+/* -------- error -------- */
+
+.error {
+  background: $button-error;
+  color: $button-primary-text;
 }

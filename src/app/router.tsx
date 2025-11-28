@@ -1,21 +1,29 @@
-import { createBrowserRouter } from "react-router";
+import { createBrowserRouter, redirect } from "react-router";
+import { ROUTES } from "@/shared/config/routes";
 import { App } from "./app";
-import { PrivateRoute, privateLoader } from "./private-route";
+import { PrivateRoute } from "./private-route";
 
 export const router = createBrowserRouter([
 	{
 		element: <App />,
 		children: [
 			{
-				path: "/login",
+				path: ROUTES.LOGIN,
 				lazy: () => import("@/pages/login"),
 			},
 			{
-				path: "/home",
 				element: <PrivateRoute />,
-				loader: privateLoader,
-				lazy: () => import("@/pages/home.page"),
+				children: [
+					{
+						path: ROUTES.HOME,
+						lazy: () => import("@/pages/home"),
+					},
+				],
 			},
 		],
+	},
+	{
+		path: ROUTES.HOME,
+		loader: () => redirect(ROUTES.HOME),
 	},
 ]);

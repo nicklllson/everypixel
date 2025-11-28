@@ -20,14 +20,10 @@ export const loginApi = createApi({
 			async queryFn(fields) {
 				await new Promise((resolve) => setTimeout(resolve, 1000));
 
-				console.log(fields);
-
 				if (fields.email && fields.password) {
 					const accessToken = await generateFakeJWT({
 						email: fields.email,
 					});
-
-					console.log({ accessToken });
 
 					return { data: { accessToken } };
 				}
